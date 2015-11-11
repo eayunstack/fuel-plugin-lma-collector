@@ -1,6 +1,6 @@
 # This task is executed before any real deployment task
 - role: ['primary-controller']
-  stage: post_deployment/8000
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/check_environment_configuration.pp
@@ -13,7 +13,7 @@
 # we need to prevent the installation of recommended packages.
 # See https://bugs.launchpad.net/fuel-plugins/+bug/1494186
 - role: '*'
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/configure_apt.pp
@@ -21,7 +21,7 @@
     timeout: 600
 
 - role: '*'
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/base.pp
@@ -29,7 +29,7 @@
     timeout: 600
 
 - role: ['controller', 'primary-controller']
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/controller.pp
@@ -37,7 +37,7 @@
     timeout: 600
 
 - role: [ 'compute' ]
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/compute.pp
@@ -45,7 +45,7 @@
     timeout: 600
 
 - role: ['cinder']
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/cinder.pp
@@ -53,7 +53,7 @@
     timeout: 600
 
 - role: ['ceph-osd']
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/ceph_osd.pp
@@ -61,7 +61,7 @@
     timeout: 600
 
 - role: '*'
-  stage: post_deployment/8200
+  stage: post_deployment
   type: puppet
   parameters:
     puppet_manifest: puppet/manifests/cleanup_apt_config.pp

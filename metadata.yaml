@@ -7,7 +7,7 @@ version: 0.7.3
 # Description
 description: Collect logs, metrics and notifications from system and OpenStack services and forward that information to external backends such as Elasticsearch and InfluxDB.
 # Required fuel version
-fuel_version: ['6.1', '7.0']
+fuel_version: ['6.0']
 
 authors: [Mirantis Inc.]
 licenses: [Apache License Version 2.0]
@@ -27,10 +27,10 @@ releases:
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu
   - os: centos
-    version: 2014.2-6.1
+    version: 2014.2.2-6.0.1
     mode: ['ha', 'multinode']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/centos
 
 # Version of plugin package
-package_version: '2.0.0'
+package_version: '1.0.0'
