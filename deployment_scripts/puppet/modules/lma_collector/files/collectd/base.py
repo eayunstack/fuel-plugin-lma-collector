@@ -171,7 +171,7 @@ class Base(object):
         See https://github.com/deniszh/collectd-iostat-python/issues/2 for
         details.
         """
-        if sys.version_info[0] == 2 and sys.version_info[1] <= 6:
+        if sys.version_info[0] == 2 and sys.version_info[1] <= 7:
             signal.signal(signal.SIGCHLD, signal.SIG_DFL)
 
 

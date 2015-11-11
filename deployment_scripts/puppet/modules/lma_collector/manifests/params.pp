@@ -135,5 +135,7 @@ class lma_collector::params {
     'nova-metadata-api'   => 'nova-metadata-api',
     'sahara'              => 'sahara-api',
     'swift'               => 'swift-api',
+    'ceilometer'          => 'ceilometer-api',
+    'rabbitmq'            => 'rabbitmq',
   }
 }
