@@ -20,7 +20,8 @@ class lma_collector::logs::openstack {
     config_dir => $lma_collector::params::config_dir,
     filename   => "${lma_collector::params::plugins_dir}/decoders/openstack_log.lua" ,
     config     => {
-      syslog_pattern => $lma_collector::params::syslog_pattern
+      syslog_pattern => $lma_collector::params::syslog_pattern,
+      tz => $lma_collector::params::tz 
     },
     notify     => Class['lma_collector::service'],
   }
