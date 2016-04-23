@@ -1,7 +1,7 @@
 attributes:
   metadata:
     restrictions:
-        - condition: "cluster:net_provider != 'neutron'"
+        - condition: "true"
           action: "hide"
 
   environment_label:

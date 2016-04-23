@@ -13,6 +13,7 @@
 #    under the License.
 #
 class lma_collector::params {
+  $tz = 'Asia/Shanghai'
   $service_name = 'lma_collector'
   $config_dir = "/etc/${service_name}"
   $plugins_dir = "/usr/share/${service_name}"
@@ -135,5 +136,7 @@ class lma_collector::params {
     'nova-metadata-api'   => 'nova-metadata-api',
     'sahara'              => 'sahara-api',
     'swift'               => 'swift-api',
+    'ceilometer'          => 'ceilometer-api',
+    'rabbitmq'            => 'rabbitmq',
   }
 }

@@ -98,10 +98,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::nova::params::api_service_name, $::nova::params::conductor_service_name, $::nova::params::scheduler_service_name],
   }
-  nova_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::nova::params::api_service_name, $::nova::params::conductor_service_name, $::nova::params::scheduler_service_name],
-  }
+#  nova_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::nova::params::api_service_name, $::nova::params::conductor_service_name, $::nova::params::scheduler_service_name],
+#  }
   nova_config {
     'DEFAULT/notify_on_state_change': value => 'vm_and_task_state',
     notify => Service[$::nova::params::api_service_name, $::nova::params::conductor_service_name, $::nova::params::scheduler_service_name],
@@ -119,10 +119,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::cinder::params::api_service, $::cinder::params::scheduler_service],
   }
-  cinder_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::cinder::params::api_service, $::cinder::params::scheduler_service],
-  }
+#  cinder_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::cinder::params::api_service, $::cinder::params::scheduler_service],
+#  }
 
   service { [$::cinder::params::api_service, $::cinder::params::scheduler_service]:
     hasstatus  => true,
@@ -136,10 +136,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::keystone::params::service_name],
   }
-  keystone_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::keystone::params::service_name],
-  }
+#  keystone_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::keystone::params::service_name],
+#  }
 
   service { $::keystone::params::service_name:
     hasstatus  => true,
@@ -153,10 +153,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::neutron::params::server_service],
   }
-  neutron_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::neutron::params::server_service],
-  }
+#  neutron_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::neutron::params::server_service],
+#  }
 
   service { $::neutron::params::server_service:
     hasstatus  => true,
@@ -173,10 +173,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::glance::params::api_service_name],
   }
-  glance_api_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::glance::params::api_service_name],
-  }
+#  glance_api_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::glance::params::api_service_name],
+#  }
   glance_api_config {
     'DEFAULT/default_publisher_id': value => $glance_publisher_id,
     notify => Service[$::glance::params::api_service_name],
@@ -185,10 +185,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => Service[$::glance::params::registry_service_name],
   }
-  glance_registry_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::glance::params::registry_service_name],
-  }
+#  glance_registry_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::glance::params::registry_service_name],
+#  }
   glance_registry_config {
     'DEFAULT/default_publisher_id': value => $glance_publisher_id,
     notify => Service[$::glance::params::registry_service_name],
@@ -220,10 +220,10 @@ class lma_collector::notifications::controller (
     'DEFAULT/notification_topics': value => $notification_topics,
     notify => [Service[$::heat::params::api_service_name], Exec[$reload_heat_engine]],
   }
-  heat_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => [Service[$::heat::params::api_service_name], Exec[$reload_heat_engine]],
-  }
+#  heat_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => [Service[$::heat::params::api_service_name], Exec[$reload_heat_engine]],
+#  }
 
   service { [$::heat::params::api_service_name]:
     hasstatus  => true,

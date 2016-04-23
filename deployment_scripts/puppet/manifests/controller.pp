@@ -106,6 +106,7 @@ if $lma_collector['influxdb_mode'] != 'disabled' {
     haproxy_socket    => $haproxy_socket,
     ceph_enabled      => $ceph_enabled,
     memcached_host    => hiera('internal_address'),
+    apache_host       => hiera('internal_address'),
   }
 
   class { 'lma_collector::collectd::mysql':
@@ -157,7 +158,9 @@ if $lma_collector['influxdb_mode'] != 'disabled' {
   class { 'lma_collector::notifications::metrics': }
 
   # Enable Apache status module
-  class { 'lma_collector::mod_status': }
+  class { 'lma_collector::mod_status': 
+    allow_from => [hiera('internal_address')]
+  }
 
   # Enable service heartbeat metrics
   class { 'lma_collector::metrics::service_heartbeat':

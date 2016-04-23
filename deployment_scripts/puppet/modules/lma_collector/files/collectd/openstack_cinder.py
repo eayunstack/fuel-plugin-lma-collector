@@ -32,7 +32,7 @@ class CinderStatsPlugin(openstack.CollectdPlugin):
         super(CinderStatsPlugin, self).config_callback(config)
 
     def read_callback(self):
-        volumes_details = self.get_objects_details('cinder', 'volumes')
+        volumes_details = self.get_objects_details('cinderv2', 'volumes')
 
         def groupby(d):
             return d.get('status', 'unknown').lower()

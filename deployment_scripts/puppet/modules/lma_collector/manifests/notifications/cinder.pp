@@ -27,10 +27,10 @@ class lma_collector::notifications::cinder (
     'DEFAULT/notification_topics': value => join($topics, ','),
     notify => Service[$::cinder::params::volume_service],
   }
-  cinder_config {
-    'DEFAULT/notification_driver': value => $driver,
-    notify => Service[$::cinder::params::volume_service],
-  }
+#  cinder_config {
+#    'DEFAULT/notification_driver': value => $driver,
+#    notify => Service[$::cinder::params::volume_service],
+#  }
 
   service { $::cinder::params::volume_service:
     hasstatus  => true,
